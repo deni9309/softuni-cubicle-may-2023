@@ -1,4 +1,6 @@
+const Cube = require('../models/Cube');
 const uniqid = require('uniqid');
+
 
 const cubes = [
     {
@@ -17,9 +19,11 @@ const cubes = [
     }
 ];
 
-exports.getAll = (search, from, to) => {
-    let cubesData = cubes.slice();  // It's a good practice to return a new reference of the cubes arr 'slice()' makes a shallow copy of it
-
+exports.getAll =  async(search, from, to) => {
+   // let cubesData = cubes.slice();  // It's a good practice to return a new reference of the cubes arr 'slice()' makes a shallow copy of it
+    
+    let cubesData = await Cube.find().lean();
+    
     if (search) {
         cubesData = cubesData.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
     }
@@ -35,15 +39,12 @@ exports.getAll = (search, from, to) => {
     return cubesData;
 };
 
-exports.getOne = (cubeId) => cubes.find(c => c.id == cubeId);
+exports.getOne = (cubeId) => Cube.findById(cubeId);
 
-exports.create = (cubeData) => {
-    const newCube = {
-        id: uniqid(),
-        ...cubeData
-    };
-
-    cubes.push(newCube);
+exports.create = async (cubeData) => {
+    const newCube = new Cube(cubeData);
+        
+    await newCube.save();
 
     return newCube;
 };
