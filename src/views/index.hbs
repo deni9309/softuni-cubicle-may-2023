@@ -11,11 +11,11 @@
 
         <input type="submit" value="search">
     </form>
-
-    {{#each cubes}}
-        {{> cube}}
-    {{else}}
-        <h2>There aren't any cubes yet!</h2>
-    {{/each}}
-
+    <section class="cubes-list">
+        {{#each cubes}}
+            {{> cube}}
+        {{else}}
+            <h2>There aren't any cubes yet!</h2>
+        {{/each}}
+    </section>
 </main>
