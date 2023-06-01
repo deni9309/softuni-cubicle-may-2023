@@ -21,7 +21,7 @@ img {
 }
 
 img.cube {
-    object-fit: cover;
+    object-fit: contain;
     margin: 0;
     padding: 2px;
 }
@@ -91,6 +91,7 @@ h1 {
 
 section.cubes-list {
     display: flex;
+    justify-content: center;
     text-align: center;
     width: 100%;
     gap: 2px;
@@ -157,10 +158,11 @@ div.details {
     max-width: 70%;
 }
 
-.details .btn-group {
-    display: inline-flex;
+.btn-group {
+    display: flex;
     margin: auto;
     justify-content: center;
+    align-items: center;
 }
 
 .details span {
@@ -187,6 +189,10 @@ div.about a {
     text-decoration: none;
     color: #0B2133;
     font-weight: bold;
+}
+
+form.attach-form {
+    margin-top: 40px;
 }
 
 form label {

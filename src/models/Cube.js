@@ -5,6 +5,11 @@ const cubeSchema = new Schema({
     description: String,
     imageUrl: String,
     difficultyLevel: Number,
+    accessories: {
+        type: [Types.ObjectId],
+        ref: 'Accessory',
+        default: [],
+    },
 });
 
 const Cube = model('Cube', cubeSchema);
