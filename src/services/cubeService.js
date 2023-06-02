@@ -19,6 +19,8 @@ exports.getAll = async (search, from, to) => {
 
 exports.getOne = (cubeId) => Cube.findById(cubeId);
 
+exports.getOneWithAccessories = (cubeId) => this.getOne(cubeId).populate('accessories');
+
 exports.create = async (cubeData) => {
     const newCube = new Cube(cubeData);
 
