@@ -4,7 +4,7 @@ const cubeService = require('../services/cubeService');
 const accessoryService = require('../services/accessoryService');
 
 router.get('/create', (req, res) => {
-    res.render('create', {
+    res.render('cube/create', {
         title: 'Create Cube'
     });
 });
@@ -17,6 +17,7 @@ router.post('/create', async (req, res) => {
         description,
         imageUrl,
         difficultyLevel: Number(difficultyLevel),
+        owner: req.user._id
     });
 
     res.redirect('/');
@@ -52,7 +53,7 @@ router.get('/:cubeId/attach-accessory', async (req, res) => {
 router.post('/:cubeId/attach-accessory', async (req, res) => {
     const { accessory: accessoryId } = req.body;
     const cubeId = req.params.cubeId;
-    
+
     await cubeService.attachAccessory(cubeId, accessoryId);
 
     res.redirect(`/cubes/${cubeId}/details`);

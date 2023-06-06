@@ -78,6 +78,7 @@ main {
     margin: 0 4em;
     border-radius: 15px;
     padding: 2em;
+    height: auto;
 }
 
 div.container {
@@ -91,6 +92,7 @@ h1 {
 
 section.cubes-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     width: 100%;
@@ -119,7 +121,6 @@ p.name {
     text-transform: uppercase;
     padding: 10px;
 }
-
 
 button,
 main a.btn {
@@ -179,20 +180,29 @@ div.details {
 }
 
 div.about {
-    display: block;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
     background-color: #f3f3f2;
     padding: 3em;
+    width: 50%;
 }
 
 div.about a {
     text-decoration: none;
     color: #0B2133;
     font-weight: bold;
+    display: inline;
 }
 
-form.attach-form {
-    margin-top: 40px;
+div.about p{
+    display: inline;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+form {
+    margin-top: 20px;
 }
 
 form label {
@@ -203,8 +213,9 @@ form label {
     border-top-right-radius: 4px;
 }
 
-input[type=text],
-input[type=number],
+input[type="text"],
+input[type="password"],
+input[type="number"],
 select,
 textarea {
     width: 100%;
@@ -315,8 +326,11 @@ img.accessory-img {
 }
 
 footer {
+    height: 2.5em;
+    bottom: 0;
+    left: 0;
     background: #607588;
-    padding: 1em;
+padding-top: 1em;
     text-align: center;
     color: white;
     font-size: 20px;
