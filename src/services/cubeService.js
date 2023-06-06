@@ -29,6 +29,10 @@ exports.create = async (cubeData) => {
     return newCube;
 };
 
+exports.delete = (cubeId) => Cube.findByIdAndDelete(cubeId);
+
+exports.update = (cubeId, cubeData) => Cube.findByIdAndUpdate(cubeId, cubeData);
+
 exports.attachAccessory = async (cubeId, accessoryId) => {
     // using native mongodb update query
     // return Cube.findByIdAndUpdate(cubeId, { $push: { accessories: accessoryId } });

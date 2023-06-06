@@ -125,13 +125,13 @@ p.name {
 button,
 main a.btn {
     border: none;
-    padding: 8px 20px;
+    padding: 8px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     width: auto;
-    margin: 12px;
+    margin: 0.5em;
     border-radius: 4px;
     background: #607588;
     color: white;
@@ -161,9 +161,13 @@ div.details {
 
 .btn-group {
     display: flex;
-    margin: auto;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.btn-group a.btn {
+    font-size: 0.8em;
 }
 
 .details span {
@@ -195,7 +199,7 @@ div.about a {
     display: inline;
 }
 
-div.about p{
+div.about p {
     display: inline;
     margin: 20px auto;
     line-height: 1.6;
@@ -235,19 +239,25 @@ input.search {
     width: 50%;
 }
 
-input[type=submit] {
+.search-form input[type="text"],
+.search-form input[type="number"] {
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
     background-color: #545775;
     border: none;
     padding: 8px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 18px;
-    width: 50%;
-    margin: 5px 5px 5px 25%;
+    margin: auto;
     color: white;
     text-transform: uppercase;
     border-radius: 4px;
+    margin-bottom: 20px;
+    min-width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
 input[type=submit]:hover {
@@ -330,7 +340,7 @@ footer {
     bottom: 0;
     left: 0;
     background: #607588;
-padding-top: 1em;
+    padding-top: 1em;
     text-align: center;
     color: white;
     font-size: 20px;
