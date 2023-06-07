@@ -1,34 +1,32 @@
 <main>
-	{{#with cube}}
-		<h1>{{name}}</h1>
-		<img class="cube-details-img" src="{{imageUrl}}" alt="{{name}}">
-		<div class="details">
-			<p>Description: <span> {{description}}</span></p>
+	<h1>{{cube.name}}</h1>
+	<img class="cube-details-img" src="{{cube.imageUrl}}" alt="{{cube.name}}">
+	<div class="details">
+		<p>Description: <span> {{cube.description}}</span></p>
+		<p>Difficulty level: <span> {{cube.difficultyLevel}}</span></p>
 
-			<p>Difficulty level: <span> {{difficultyLevel}}</span></p>
-
-			<div class="btn-group">
-				<a class="btn" href="/">Back</a>
-				<a class="btn" href="/cubes/{{_id}}/attach-accessory">Attach Accessory</a>
-				<a class="btn" href="/cubes/{{_id}}/edit">Edit</a>
-				<a class="btn" href="/cubes/{{_id}}/delete">Delete</a>
-			</div>
-
+		<div class="btn-group">
+			<a class="btn" href="/">Back</a>
+			{{#if isAuthenticated}}
+				{{#if isOwner}}
+					<a class="btn" href="/cubes/{{cube._id}}/attach-accessory">Attach Accessory</a>
+					<a class="btn" href="/cubes/{{cube._id}}/edit">Edit</a>
+					<a class="btn" href="/cubes/{{cube._id}}/delete">Delete</a>
+				{{/if}}
+			{{/if}}
 		</div>
+	</div>
 
-		<h2>Accessories</h2>
-		<section class="accessories">
-			{{#each accessories}}
-
-				<div class="accessory">
-					<img class="accessory-img" src="{{this.imageUrl}}" alt="{{this.name}}">
-					<h3>{{this.name}}</h3>
-					<p>{{this.description}}</p>
-				</div>
-
-			{{else}}
-				<h3 class="no-results"><i>This cube has no accessories yet...</i></h3>
-			{{/each}}
-		</section>
-	{{/with}}
+	<h2>Accessories</h2>
+	<section class="accessories">
+		{{#each cube.accessories}}
+			<div class="accessory">
+				<img class="accessory-img" src="{{imageUrl}}" alt="{{name}}">
+				<h3>{{name}}</h3>
+				<p>{{description}}</p>
+			</div>
+		{{else}}
+			<h3 class="no-results"><i>This cube has no accessories yet...</i></h3>
+		{{/each}}
+	</section>
 </main>
